@@ -1,0 +1,68 @@
+/* ==========================================================================
+   Miro Biotech — inner pages (about, contact, shipping, legal)
+   Load after style.css, product-detail.css and home.css.
+   ========================================================================== */
+
+/* ---------- breadcrumb on the dark page head ---------- */
+.breadcrumb { color: rgba(255, 255, 255, .72); }
+.breadcrumb a { color: rgba(255, 255, 255, .86); }
+.breadcrumb a:hover { color: #fff; }
+
+/* ---------- prose blocks ---------- */
+.wrap--narrow > .eyebrow { margin-top: 2.4rem; }
+.wrap--narrow > .eyebrow:first-child { margin-top: 0; }
+.wrap--narrow > p { color: var(--muted); font-size: .97rem; max-width: 68ch; }
+.wrap--narrow > h2 { margin-bottom: .6rem; }
+.wrap--narrow .tick-list { margin: 1rem 0 0; }
+
+.legal-copy h2 {
+  font-size: 1.28rem;
+  margin: 2.2rem 0 .55rem;
+}
+.legal-copy h2:first-child { margin-top: 0; }
+.legal-copy p { color: var(--muted); font-size: .95rem; max-width: 72ch; }
+.legal-copy ul { margin: 0 0 1rem; padding-left: 1.15rem; }
+.legal-copy li { color: var(--muted); font-size: .95rem; margin-bottom: .45rem; }
+
+/* ---------- contact form ---------- */
+.contact-form .field { margin-bottom: 1.05rem; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  font: inherit;
+  font-size: .93rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: .68rem .8rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, .18);
+}
+.contact-form input:invalid:not(:placeholder-shown) { border-color: #d9b4ae; }
+.contact-form .field__hint {
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+  font-size: .78rem;
+  margin-left: .35rem;
+}
+.contact-form .form-hint {
+  margin-top: .8rem;
+  font-size: .8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 560px) {
+  .legal-copy h2 { font-size: 1.16rem; }
+  .wrap--narrow > p, .legal-copy p, .legal-copy li { font-size: .93rem; }
+}

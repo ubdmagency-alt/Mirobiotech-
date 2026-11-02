@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mirobiotech.ramsonekwe17.workers.dev/sitemap.xml

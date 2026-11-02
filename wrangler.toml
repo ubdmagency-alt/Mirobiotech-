@@ -1,0 +1,27 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "mirobiotech"
+compatibility_date = "2025-01-01"
+
+# ---------------------------------------------------------------------------
+# Static site on Cloudflare Workers (Workers Static Assets).
+# Everything in ./public is uploaded and served from Cloudflare's edge.
+#
+#   npm install          # first time only
+#   npm run dev          # local preview at http://localhost:8787
+#   npm run deploy       # publish to https://mirobiotech.<your-subdomain>.workers.dev
+# ---------------------------------------------------------------------------
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
+
+# Uncomment once you attach a custom domain (Workers > Settings > Domains,
+# or add it here and redeploy). Leave commented until mirobiotech.com is
+# pointed at Cloudflare, otherwise deploy will fail on an unverified zone.
+# [[routes]]
+# pattern = "mirobiotech.com"
+# custom_domain = true
+#
+# [[routes]]
+# pattern = "www.mirobiotech.com"
+# custom_domain = true

@@ -1,0 +1,19 @@
+{
+  "name": "mirobiotech-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Miro Biotech — static research peptide storefront",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev --port 8787",
+    "tail": "wrangler tail",
+    "whoami": "wrangler whoami"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
