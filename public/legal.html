@@ -14,8 +14,8 @@
 <body>
 <header class="header">
   <div class="wrap header__inner">
-    <a class="brand" href="/""><svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 27V13c0-4.4 3.6-8 8-8s8 3.6 8 8v14" stroke="#2dd4bf" stroke-width="2.4" stroke-linecap="round"/><path d="M16 27V15" stroke="#2dd4bf" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="7" r="2" fill="#2dd4bf"/></svg><span>Miro<em>Biotech</em></span></a>
-    <nav class="nav" id="nav" aria-label="Main"><a href="/products">Products</a><a href="/"#categories">Categories</a><a href="/about"">About</a><a href="/contact"">Contact</a></nav>
+    <a class="brand" href="/"><img class="brand__mark" src="assets/img/logo.png" alt="" width="30" height="30"><span>Miro<em>Biotech</em></span></a>
+    <nav class="nav" id="nav" aria-label="Main"><a href="/products">Products</a><a href="/#categories">Categories</a><a href="/about">About</a><a href="/contact">Contact</a></nav>
     <div class="header__actions">
       <button class="cart-btn" type="button" data-open-cart aria-label="Open your order">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span>Order</span><span class="cart-btn__count" data-cart-count>0</span>
@@ -31,7 +31,7 @@
 
 <section class="page-head">
   <div class="wrap">
-    <div class="breadcrumb"><a href="/"">Home</a><span>/</span>Legal</div>
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span>Legal</div>
     <h1>Legal &amp; Disclaimer</h1>
     <p>Terms of supply, privacy and our research-use declaration.</p>
   </div>
@@ -59,9 +59,15 @@
       should be read as a therapeutic claim.</p>
 
     <h2>Orders and payment</h2>
-    <p>Orders are placed by email. Prices shown on this site are indicative and exclude shipping and
-      any applicable duties or taxes. A binding total is confirmed in writing before dispatch. We
-      reserve the right to decline or cancel any order, including where we cannot verify research
+    <p>Orders are placed through the checkout on this site, either paid in Bitcoin or sent to us by
+      email for invoicing. Prices shown here are indicative and exclude any applicable duties or
+      taxes; a binding total is confirmed in writing before dispatch. Card, PayPal, CashApp and Zelle
+      are offered on request and are invoiced by our team, not collected on this site.</p>
+    <p>Bitcoin payments are sent by you from your own wallet to the address published at checkout.
+      Cryptocurrency transfers are irreversible and the exchange rate moves; we confirm the amount
+      received and the order total by email before dispatch. Always verify the address shown at
+      checkout before sending, and email us the transaction ID so we can match your payment.</p>
+    <p>We reserve the right to decline or cancel any order, including where we cannot verify research
       intent or where local restrictions apply.</p>
 
     <h2>Returns</h2>
@@ -69,9 +75,10 @@
       arrives damaged or incorrect, contact us within 14 days and we will replace or refund it.</p>
 
     <h2>Privacy</h2>
-    <p>This site does not run analytics or advertising trackers, and it does not collect payment
-      details. Your order list is stored only in your own browser&rsquo;s local storage — it never
-      leaves your device until you choose to send it to us by email.</p>
+    <p>This site does not run analytics or advertising trackers, and it never collects card or wallet
+      credentials. Your order list and the shipping details you type at checkout are stored only in
+      your own browser&rsquo;s local storage — they never leave your device until you send them to us
+      by email. If you pay in Bitcoin, the transfer happens in your own wallet, not on this site.</p>
     <p>When you email us, we keep your correspondence and shipping details for as long as needed to
       fulfil the order and meet our record-keeping obligations. We do not sell or share your
       information with third parties other than the carriers used to deliver your order.</p>
@@ -85,7 +92,7 @@
   <div class="wrap">
     <div class="footer__grid">
       <div class="footer__about">
-        <a class="brand" href="/""><svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 27V13c0-4.4 3.6-8 8-8s8 3.6 8 8v14" stroke="#2dd4bf" stroke-width="2.4" stroke-linecap="round"/><path d="M16 27V15" stroke="#2dd4bf" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="7" r="2" fill="#2dd4bf"/></svg><span>Miro<em>Biotech</em></span></a>
+        <a class="brand" href="/"><img class="brand__mark" src="assets/img/logo.png" alt="" width="30" height="30"><span>Miro<em>Biotech</em></span></a>
         <p>High-purity research peptides supplied to individual researchers, laboratories and
            institutions worldwide. Third-party tested with a certificate of analysis for every batch.</p>
       </div>
@@ -99,10 +106,11 @@
       <div>
         <h4>Information</h4>
         <ul>
-          <li><a href="/about"">About Us</a></li>
-          <li><a href="/shipping"">Shipping</a></li>
-          <li><a href="/legal"">Legal &amp; Disclaimer</a></li>
-          <li><a href="/contact"">Contact</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/shipping">Shipping</a></li>
+          <li><a href="/checkout">Checkout</a></li>
+          <li><a href="/legal">Legal &amp; Disclaimer</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
       <div>

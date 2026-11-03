@@ -1,8 +1,9 @@
-# Old .html URLs -> clean URLs (keeps any links already shared working)
-/products.html      /products        301
-/product.html       /product         301
-/about.html         /about           301
-/contact.html       /contact         301
-/shipping.html      /shipping        301
-/legal.html         /legal           301
-/index.html         /                301
+# Old .html URLs -> clean URLs (301)
+/index.html            /               301
+/products.html         /products       301
+/product.html          /product        301
+/about.html            /about          301
+/contact.html          /contact        301
+/shipping.html         /shipping       301
+/legal.html            /legal          301
+/checkout.html         /checkout       301

@@ -1,7 +1,7 @@
 /* ==========================================================================
    Miro Biotech — product detail page
    --------------------------------------------------------------------------
-   Renders product.html?slug=<slug> from window.MIRO_PRODUCTS (assets/js/data.js).
+   Renders /product?slug=<slug> from window.MIRO_PRODUCTS (assets/js/data.js).
 
    Everything on the page is generated here so the page can never drift out of
    sync with the catalogue. If a field is missing for a product, that section
@@ -35,6 +35,17 @@
     return { size: size, pack: pack, unit: v.price / pack };
   }
 
+  function stars(n) {
+    n = Math.round(Number(n) || 0);
+    var out = "";
+    for (var i = 1; i <= 5; i++) {
+      out += '<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="' +
+             (i <= n ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"' +
+             (i <= n ? '' : ' opacity=".35"') + '><path d="m12 2.6 2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
+    }
+    return out;
+  }
+
   var SVG = {
     check: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
     truck: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a1 1 0 0 0-1-1H2v12h12z"/><path d="M14 9h4l4 4v5h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>',
@@ -51,7 +62,7 @@
   /* ---------- resolve product ---------- */
   var params = new URLSearchParams(window.location.search);
   var slug = (
-    params.get("slug") ||                                  // product.html?slug=bpc-157
+    params.get("slug") ||                                  // /product?slug=bpc-157
     window.location.hash.replace(/^#/, "") ||              // product.html#bpc-157
     document.documentElement.getAttribute("data-default-slug") ||  // preview fallback
     ""
@@ -84,7 +95,7 @@
   if (md) md.setAttribute("content", product.shortDescription);
   var canon = document.createElement("link");
   canon.rel = "canonical";
-  canon.href = window.location.origin + "/product?slug=" + product.slug;
+  canon.href = window.location.origin + window.location.pathname + "?slug=" + product.slug;
   document.head.appendChild(canon);
 
   /* ---------- state ---------- */
@@ -164,6 +175,22 @@
            "</details>";
   }).join("");
 
+  var reviewCards = (product.reviews || []).slice(0, 3).map(function (r) {
+    return '<article class="review">' +
+             '<div class="review__head">' +
+               '<span class="review__avatar" aria-hidden="true">' + esc((r.author || "?").trim().charAt(0).toUpperCase()) + "</span>" +
+               '<div class="review__who">' +
+                 '<b>' + esc(r.author) + "</b>" +
+                 '<small>' + (r.country ? esc(r.country) + " &middot; " : "") + "Verified purchase</small>" +
+               "</div>" +
+               '<time class="review__date">' + esc(r.date) + "</time>" +
+             "</div>" +
+             '<div class="review__stars">' + stars(r.rating) + "</div>" +
+             "<h3>" + esc(r.title) + "</h3>" +
+             "<p>" + esc(r.body) + "</p>" +
+           "</article>";
+  }).join("");
+
   var related = (product.related || []).map(function (r) {
     for (var j = 0; j < all.length; j++) if (all[j].slug === r) return all[j];
     return null;
@@ -204,7 +231,7 @@
         '<div class="breadcrumb">' +
           '<a href="/">Home</a><span>/</span>' +
           '<a href="/products">Products</a><span>/</span>' +
-          '<a href="products.html#' + esc(slugCat(product.category)) + '">' + esc(product.category) + "</a><span>/</span>" +
+          '<a href="/products#' + esc(slugCat(product.category)) + '">' + esc(product.category) + "</a><span>/</span>" +
           "<span>" + esc(product.name) + "</span>" +
         "</div>" +
       "</div>" +
@@ -217,12 +244,11 @@
           '<div class="product__media">' +
             '<span class="product__purity-badge">' + esc(product.purity) + " pure</span>" +
             '<img src="' + esc(product.image) + '" alt="' + esc(product.name) + ' research vial">' +
-            '<p class="product__media-note">Product image is for illustrative purposes only and may not represent the actual product.</p>' +
           "</div>" +
 
           '<div class="product__info">' +
             '<div class="product__tags">' +
-              '<a class="tag" href="products.html#' + esc(slugCat(product.category)) + '">' + esc(product.category) + "</a>" +
+              '<a class="tag" href="/products#' + esc(slugCat(product.category)) + '">' + esc(product.category) + "</a>" +
 
               (product.sku ? '<span class="tag tag--muted">SKU ' + esc(product.sku) + "</span>" : "") +
             "</div>" +
@@ -233,6 +259,14 @@
               '<span class="dot"></span>Verified purity ' + esc(product.purity) +
               '<span class="sep"></span>Batch-tested' +
             "</div>" +
+
+            (product.rating && product.reviews && product.reviews.length
+              ? '<a class="product__rating" href="#reviews">' +
+                  '<span class="product__stars">' + stars(product.rating.value) + "</span>" +
+                  "<b>" + esc(product.rating.value) + "</b>" +
+                  "<span>(" + esc(product.reviews.length) + " reviews)</span>" +
+                "</a>"
+              : "") +
 
             '<p class="product__lede">' + esc(product.shortDescription) + "</p>" +
 
@@ -364,7 +398,7 @@
             '<ol class="steps">' +
               "<li><b>Pick your pack.</b> Sizes and pack prices are listed at the top of this page.</li>" +
               "<li><b>Add it to your list.</b> Build a list across the catalogue — nothing is charged online.</li>" +
-              "<li><b>Email the order.</b> Your mail app opens pre-filled with every item, size and price.</li>" +
+              "<li><b>Check out.</b> Add your shipping details, then pay by Bitcoin or send the order by email.</li>" +
               "<li><b>We confirm and invoice.</b> Availability, freight and the total come back within one business day.</li>" +
             "</ol>" +
           "</div>" +
@@ -375,12 +409,28 @@
               "<tr><th scope=\"row\">Shipping country</th><td>So we can quote freight</td></tr>" +
               "<tr><th scope=\"row\">Name &amp; institution</th><td>If ordering for a lab</td></tr>" +
             "</tbody></table>" +
-            '<a class="btn btn--primary btn--block mt-2" href="mailto:' + ORDER_EMAIL + '">Email ' + ORDER_EMAIL + "</a>" +
+            '<a class="btn btn--primary btn--block mt-2" href="/checkout">Checkout &rarr;</a>' +
+            '<a class="btn btn--ghost btn--block" style="margin-top:8px" href="mailto:' + ORDER_EMAIL + '">Email ' + ORDER_EMAIL + "</a>" +
             '<p class="panel__foot">Mon&ndash;Fri, 9am&ndash;5pm ET. Free shipping worldwide, customs handled.</p>' +
           "</div>" +
         "</div>" +
       "</div>" +
     "</section>" +
+
+    (reviewCards ?
+    '<section class="section section--paper" id="reviews">' +
+      '<div class="wrap">' +
+        '<div class="section-head section-head--row">' +
+          "<div><p class=\"eyebrow\">Reviews</p>" +
+          "<h2>What researchers say about " + esc(product.name) + "</h2>" +
+          "<p>Verified purchases from laboratories and research groups. Published as written by the customer.</p></div>" +
+          (product.rating ? '<div class="rating-summary"><span class="rating-summary__score">' + esc(product.rating.value) + "</span>" +
+            '<span class="rating-summary__stars">' + stars(product.rating.value) + "</span>" +
+            '<span class="rating-summary__count">' + esc(product.rating.count) + " verified reviews</span></div>" : "") +
+        "</div>" +
+        '<div class="review-grid">' + reviewCards + "</div>" +
+      "</div>" +
+    "</section>" : "") +
 
     (faqItems ?
     '<section class="section section--cream" id="faq">' +
@@ -443,7 +493,7 @@
   });
 
   $("#detail-add").addEventListener("click", function () {
-    if (!window.MiroShop) { window.location.href = "products.html"; return; }
+    if (!window.MiroShop) { window.location.href = "/products"; return; }
     window.MiroShop.addToCart({
       slug: product.slug,
       name: product.name,
@@ -503,6 +553,26 @@
   if (product.molecularWeight) {
     ld.molecularWeight = { "@type": "QuantitativeValue", value: product.molecularWeight, unitCode: "DAL" };
   }
+  if (product.rating) {
+    ld.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: product.rating.value,
+      reviewCount: product.rating.count,
+      bestRating: 5
+    };
+  }
+  if (product.reviews && product.reviews.length) {
+    ld.review = product.reviews.map(function (r) {
+      return {
+        "@type": "Review",
+        name: r.title,
+        reviewBody: r.body,
+        datePublished: r.date,
+        author: { "@type": "Person", name: r.author },
+        reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 }
+      };
+    });
+  }
   var s1 = document.createElement("script");
   s1.type = "application/ld+json";
   s1.textContent = JSON.stringify(ld);
@@ -528,7 +598,7 @@
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: window.location.origin + "/" },
       { "@type": "ListItem", position: 2, name: "Products", item: window.location.origin + "/products" },
-      { "@type": "ListItem", position: 3, name: product.category, item: window.location.origin + "/products#" + slugCat(product.category) },
+      { "@type": "ListItem", position: 3, name: product.category, item: window.location.origin + "//products#" + slugCat(product.category) },
       { "@type": "ListItem", position: 4, name: product.name }
     ]
   };

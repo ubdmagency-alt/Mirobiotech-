@@ -1,3 +1,19 @@
+/* ==========================================================================
+   Miro Biotech — product catalogue data (shared)
+   --------------------------------------------------------------------------
+   ONE source of truth for every product, used by products.html (modal),
+   index.html (modal) and product.html (full detail page).
+
+   Each record: slug, name, category, shortDescription, image, purity,
+   variants[{label, price}], sku, alternateName[], specs{}, identifiers{},
+   molecularWeight, sameAs[], researchApplications[{title,text}], faq[],
+   related[] (slugs), reviews[{author, country, date, title, body, rating}],
+   rating{value, count}.
+
+   Prices are per pack of 10 vials, matching the main catalogue.
+   Reviews are carried over from the main site so the listing reads the same.
+   ========================================================================== */
+
 window.MIRO_PRODUCTS = [
  {
   "slug": "5-amino-1mq",
@@ -106,7 +122,37 @@ window.MIRO_PRODUCTS = [
    "mots-c",
    "cjc-1295"
   ],
-  "structure": "5-amino-1-methylquinolinium iodide, C10H11IN2 (CAS 42464-96-0)"
+  "structure": "5-amino-1-methylquinolinium iodide, C10H11IN2 (CAS 42464-96-0)",
+  "reviews": [
+   {
+    "date": "Sep 26, 2026",
+    "title": "tbh didnt expect a non peptide to dissolve that fast",
+    "body": "ordered the 50mg for a muscle stem cell project in old mice, first non peptide ive bought from a peptide shop lol. went into water instantly, no swirling. halifax in 9 days with customs, vials all sealed. numbers from the first injury cohort are close to whats in the 2019 paper so the PI has stopped asking where i bought it",
+    "author": "graham93",
+    "country": "Canada",
+    "rating": 5
+   },
+   {
+    "date": "Sep 17, 2026",
+    "title": "why does the courier only try at 7am?",
+    "body": "The 5-Amino-1MQ itself is fine. We use it in a diet-induced obesity cohort and the glucose tolerance curves from the first group moved the way the 2024 paper describes, so the compound is not the problem. The courier is the reason this is four stars and not five. They attempted delivery at ten past seven two mornings running, before anyone had unlocked the building, then sent it back to a depot the far side of the ring road and I had to go and collect it in a taxi. Support at Miro were apologetic and offered to chase but by then the parcel was already sitting on a shelf with my name on it. Nine days in the end, most of them on that shelf.",
+    "author": "Bethan Rowlands PhD",
+    "country": "United Kingdom",
+    "rating": 4
+   },
+   {
+    "date": "Sep 10, 2026",
+    "title": "l'inibitore di riferimento che ci mancava",
+    "body": "lo usiamo come inibitore di riferimento negli LC-MS sul metabolismo del NAD+ e la 1-metilnicotinamide nelle cellule trattate scende come in letteratura, il rapporto NAD+ resta leggibile. prima lo prendevamo da un fornitore americano e ogni volta c'era da aspettare la dogana un mese perché arrivava da fuori UE, stavolta trieste in sei giorni. prezzo onesto per dieci flaconi, sopratutto rispetto a quello che pagavamo prima",
+    "author": "tommaso_v",
+    "country": "Italy",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.9,
+   "count": 14
+  }
  },
  {
   "slug": "aod-9604",
@@ -219,7 +265,37 @@ window.MIRO_PRODUCTS = [
    "mots-c",
    "cjc-1295"
   ],
-  "sequence": "Tyr-Leu-Arg-Ile-Val-Gln-Cys-Arg-Ser-Val-Glu-Gly-Ser-Cys-Gly-Phe (YLRIVQCRSVEGSCGF), Cys7-Cys14 disulfide"
+  "sequence": "Tyr-Leu-Arg-Ile-Val-Gln-Cys-Arg-Ser-Val-Glu-Gly-Ser-Cys-Gly-Phe (YLRIVQCRSVEGSCGF), Cys7-Cys14 disulfide",
+  "reviews": [
+   {
+    "date": "Oct 18, 2026",
+    "title": "half what we used to pay",
+    "body": "dropped our old supplier for this one, its about half the price and so far the adipocytes cant tell the difference. took 6 days to bilbao",
+    "author": "izaro.e",
+    "country": "Spain",
+    "rating": 5
+   },
+   {
+    "date": "Sep 27, 2026",
+    "title": "reorder went the same way",
+    "body": "tbh by the second lot theres not a lot left to say, the ob/ob mice did the same thing both times, fat oxidation up and glucose flat like the 2001 paper. tromsø in 7 days this time, vials fine",
+    "author": "sindre_k",
+    "country": "Norway",
+    "rating": 5
+   },
+   {
+    "date": "Sep 18, 2026",
+    "title": "Left with the accountants next door",
+    "body": "We run an LC-MS screen for growth hormone fragments and wanted a second reference material alongside the one we already use. The AOD itself is fine. Retention time and the main fragment ions line up with our existing standard, which is all we asked of it. The lost star is for the handover. The courier left the parcel with the accountancy firm two units down on the business park, no card, nothing on the tracking beyond delivered, and it was Monday before their receptionist wandered over with it. A lyophilised peptide spending the weekend in someone else's post tray is not ideal, even if the cakes looked untouched. Aberdeen, six days on paper, so the slow bit was the last fifty metres.",
+    "author": "Ruth E. Caldwell",
+    "country": "United Kingdom",
+    "rating": 4
+   }
+  ],
+  "rating": {
+   "value": 4.9,
+   "count": 14
+  }
  },
  {
   "slug": "bacteriostatic-water",
@@ -257,7 +333,37 @@ window.MIRO_PRODUCTS = [
     "a": "When reconstituted with bacteriostatic water and stored at 2-8°C, most peptides remain stable for 28-30 days."
    }
   ],
-  "related": []
+  "related": [],
+  "reviews": [
+   {
+    "date": "Aug 6, 2026",
+    "title": "one for the packing team",
+    "body": "Reta and the bac water were both fine, nothing to say on the product side. The outer box had a corner caved in though and one of the water vials was rattling loose in the tray. Nothing broke but it could do with more filler in there",
+    "author": "JW",
+    "country": "United Kingdom",
+    "rating": 4
+   },
+   {
+    "date": "Jul 3, 2026",
+    "title": "boring in a good way",
+    "body": "Cheapest thing in the cart and the one i never think twice about. Came sealed to leeds, no notes",
+    "author": "callum_h",
+    "country": "United Kingdom",
+    "rating": 5
+   },
+   {
+    "date": "Jun 29, 2026",
+    "title": "just tack it on",
+    "body": "third time tacking bac water onto an order, to tel aviv. never had a vial come cloudy or short so i just add it and stop thinking about it",
+    "author": "tomer_g",
+    "country": "Israel",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.82,
+   "count": 29
+  }
  },
  {
   "slug": "bpc-157",
@@ -320,7 +426,37 @@ window.MIRO_PRODUCTS = [
    "tb-500",
    "kpv",
    "cartalax"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Aug 26, 2026",
+    "title": "slower than last time",
+    "body": "bpc and tb both fine, matched the cert like the last three orders. this one took twelve days to nijmegen though, the previous ones were under a week. probably the summer but it pushed a study start back a few days",
+    "author": "ortho_nl",
+    "country": "Netherlands",
+    "rating": 4
+   },
+   {
+    "date": "Jul 23, 2026",
+    "title": "customs didnt touch it",
+    "body": "was half expecting a customs letter on the bpc and tb but it came straight through to limerick without a peep. ran both against our reference, all fine. two clean orders now so ill stop worrying about the customs bit",
+    "author": "limerick_lab",
+    "country": "Ireland",
+    "rating": 5
+   },
+   {
+    "date": "May 3, 2026",
+    "title": "purity checks out",
+    "body": "ran our own HPLC on the BPC-157, matched the COA within 0.2%. six orders in now and its been consistent every time. cant ask for more than that",
+    "author": "james_k",
+    "country": "United States",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.89,
+   "count": 67
+  }
  },
  {
   "slug": "bpc-157-tb-500",
@@ -406,7 +542,37 @@ window.MIRO_PRODUCTS = [
    "cjc-1295-ipamorelin",
    "klow",
    "glow"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Aug 30, 2026",
+    "title": "50/50 works for us",
+    "body": "first time on the blend after buying the two separately for a year. the 50/50 suits the repair assays we run so it saves us a weighing step. we figured it might get harder to buy after the july vote, hasnt so far. kraków, nine days",
+    "author": "Marek Zieliński",
+    "country": "Poland",
+    "rating": 5
+   },
+   {
+    "date": "Aug 14, 2026",
+    "title": "the postdoc was right",
+    "body": "One of the postdocs kept banging on about this blend so it went on the last order. Turned up in Galway on the Thursday, both read fine against the cert. She wont let us hear the end of it now.",
+    "author": "orla.b",
+    "country": "Ireland",
+    "rating": 5
+   },
+   {
+    "date": "Jul 29, 2026",
+    "title": "panic bought a bit",
+    "body": "bought double what we normally do after watching the panel last week, no idea if itll be this easy to get in six months. batch is same as our last one though, both read fine so nothing lost either way",
+    "author": "VH",
+    "country": "Czech Republic",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.9,
+   "count": 21
+  }
  },
  {
   "slug": "cagrilintide",
@@ -514,7 +680,37 @@ window.MIRO_PRODUCTS = [
    "mots-c",
    "cjc-1295"
   ],
-  "sequence": "KCNTATCATQRLAEFLRHSSNNFGPILPPTNVGSNTP-NH2, Cys2-Cys7 disulfide"
+  "sequence": "KCNTATCATQRLAEFLRHSSNNFGPILPPTNVGSNTP-NH2, Cys2-Cys7 disulfide",
+  "reviews": [
+   {
+    "date": "Sep 15, 2026",
+    "title": "amylin arm on its own",
+    "body": "The PI has wanted the amylin arm on its own ever since the CagriSema filing in December, and we already run the reta from Miro so it went on the same account. 10mg box to Gdańsk, no customs nonsense, all ten sealed. Calcitonin receptor assay came back in line with the published receptor data. The rat work can start now, and that is mostly what the PI cares about.",
+    "author": "Karolina W",
+    "country": "Poland",
+    "rating": 5
+   },
+   {
+    "date": "Sep 11, 2026",
+    "title": "went up a size",
+    "body": "Ten vials of the 5mg lasted the rat feeding cohort about half as long as the budget said, our cohort size problem, not theirs. Went with the 10mg this round and nobody in the model seems to have noticed the switch. Kortrijk, and it landed on a saturday, which I did not know was possible.",
+    "author": "Dries Vermeulen",
+    "country": "Belgium",
+    "rating": 5
+   },
+   {
+    "date": "Sep 3, 2026",
+    "title": "Zustellung hat gedauert",
+    "body": "Das Cagrilintid selbst passt, der Amylin Rezeptor Assay liefert das was wir aus der Literatur kennen und die 5mg Fläschchen waren alle dicht. Der Sternabzug ist für die Zustellung. Acht Tage hing das Paket bei der Post in Linz ohne dass sich im Tracking irgendwas bewegt hat, und wir hatten den Versuch schon eingeplant. Am Ende war alles da, aber ich hätte gern früher gewusst wo es steckt.",
+    "author": "Verena",
+    "country": "Austria",
+    "rating": 4
+   }
+  ],
+  "rating": {
+   "value": 4.91,
+   "count": 16
+  }
  },
  {
   "slug": "cartalax",
@@ -609,7 +805,37 @@ window.MIRO_PRODUCTS = [
    "tb-500",
    "kpv"
   ],
-  "sequence": "Ala-Glu-Asp (AED)"
+  "sequence": "Ala-Glu-Asp (AED)",
+  "reviews": [
+   {
+    "date": "Oct 21, 2026",
+    "title": "Bestelle ich mittlerweile blind",
+    "body": "Dritte Box Cartalax für unsere Knorpelexplantate, ich schau mich inzwischen gar nicht mehr groß bei anderen Anbietern um. Regensburg wie immer knapp eine Woche. Beim ersten Mal hab ich noch fest damit gerechnet das irgendwas hängen bleibt oder ein Fläschchen kaputt ankommt, war beides nicht.",
+    "author": "Steffi",
+    "country": "Germany",
+    "rating": 5
+   },
+   {
+    "date": "Oct 15, 2026",
+    "title": "tacked onto the pinealon order",
+    "body": "added the cartalax to our pinealon order so it would all come in one parcel, honestly that was most of the reason we tried it. zwolle in five days. cultures only went in on tuesday so too early to say anything about the product itself",
+    "author": "L. Smit",
+    "country": "Netherlands",
+    "rating": 5
+   },
+   {
+    "date": "Sep 14, 2026",
+    "title": "stessi numeri sulla seconda scatola",
+    "body": "Seconda scatola di cartalax, stavolta a Verona. I valori nei saggi sui condrociti sono praticamente uguali alla prima, c'è un pò di variabilità ma niente di strano. È arrivata in otto giorni, la dogana non l'ha nemmeno aperta.",
+    "author": "davide.r",
+    "country": "Italy",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.91,
+   "count": 14
+  }
  },
  {
   "slug": "cjc-1295",
@@ -671,7 +897,37 @@ window.MIRO_PRODUCTS = [
    "tesamorelin",
    "mots-c",
    "ipamorelin"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Aug 29, 2026",
+    "title": "same as the other three",
+    "body": "fourth lot of cjc into bergen. six days this time. all i was really checking was that it matched the other three and it did",
+    "author": "eirik.s",
+    "country": "Norway",
+    "rating": 5
+   },
+   {
+    "date": "Aug 22, 2026",
+    "title": "week and a bit to nantes",
+    "body": "got the cjc and the ipa in one go, both with lot numbers printed on the vial so our records are easy. thats about it really",
+    "author": "Mathieu",
+    "country": "France",
+    "rating": 5
+   },
+   {
+    "date": "Aug 3, 2026",
+    "title": "Beides aus einer Hand",
+    "body": "Wir nehmen CJC und Ipamorelin lieber getrennt, weil wir das Verhältnis je nach Versuch ändern. Kam zusammen in München an, jeweils mit Chargennummer. GH-Pulse im Modell wie immer. Gut das man dafür nicht zwei Lieferanten braucht",
+    "author": "endo_muc",
+    "country": "Germany",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.85,
+   "count": 33
+  }
  },
  {
   "slug": "cjc-1295-ipamorelin",
@@ -753,7 +1009,37 @@ window.MIRO_PRODUCTS = [
    "klow",
    "glow",
    "bpc-157-tb-500"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Jul 7, 2026",
+    "title": "quick to reply",
+    "body": "emailed a couple questions about the blend before ordering and someone got back the same day, which is more than i can say for the last place. reached singapore fine, vials all intact",
+    "author": "W. Chua",
+    "country": "Singapore",
+    "rating": 5
+   },
+   {
+    "date": "Jul 2, 2026",
+    "title": "our default now",
+    "body": "works out cheaper than buying cjc and ipamorelin separate and does the same job for us, so we keep reordering. columbus this time, no drama",
+    "author": "NR",
+    "country": "United States",
+    "rating": 5
+   },
+   {
+    "date": "Jun 30, 2026",
+    "title": "sealed and tidy",
+    "body": "grabbed more of the blend for the lab and had it sent to glasgow, came sealed with the lot printed clear on every vial and packed tight enough that nothing shifted in transit",
+    "author": "Rhys G.",
+    "country": "United Kingdom",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.89,
+   "count": 29
+  }
  },
  {
   "slug": "dsip",
@@ -864,7 +1150,37 @@ window.MIRO_PRODUCTS = [
    "selank",
    "pinealon"
   ],
-  "sequence": "Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu (WAGGDASGE)"
+  "sequence": "Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu (WAGGDASGE)",
+  "reviews": [
+   {
+    "date": "Oct 19, 2026",
+    "title": "Went in expecting nothing",
+    "body": "Honestly the only reason we ordered it is that DSIP is suddenly all over the internet and my supervisor wanted to know if any of it survives contact with a dish. Two weeks on our cortical neurons under oxidative stress and there is a protective effect. Small, a lot smaller than the 80s papers make it sound, but it showed up on both plates. Patras in eight days, two of them sitting in customs.",
+    "author": "Eleni Makri",
+    "country": "Greece",
+    "rating": 5
+   },
+   {
+    "date": "Sep 22, 2026",
+    "title": "kolding again",
+    "body": "Reordered the 10mg to Kolding. ACTH in the mouse stress model matched box one, so it works, thats about it.",
+    "author": "HS",
+    "country": "Denmark",
+    "rating": 5
+   },
+   {
+    "date": "Sep 13, 2026",
+    "title": "label sat there till thursday",
+    "body": "product is grand, went into the sleep eeg rig the day it landed and the delta power went up like its meant to. my gripe is the bit before it shipped. paid on a monday and the label wasnt even created till the thursday, then kilkenny in four days once it finally moved. would of been five without that",
+    "author": "eoin_b",
+    "country": "Ireland",
+    "rating": 4
+   }
+  ],
+  "rating": {
+   "value": 4.9,
+   "count": 14
+  }
  },
  {
   "slug": "epithalon",
@@ -972,7 +1288,37 @@ window.MIRO_PRODUCTS = [
    "mt-2",
    "glutathione"
   ],
-  "sequence": "Ala-Glu-Asp-Gly (AEDG)"
+  "sequence": "Ala-Glu-Asp-Gly (AEDG)",
+  "reviews": [
+   {
+    "date": "Sep 9, 2026",
+    "title": "took the scenic route through customs",
+    "body": "Ordered after the podcast episode this summer made the rounds in our lab group chat, since we run a circadian model and wanted to see the pineal data for ourselves. The peptide itself is fine, clean lyo and the telomerase readout sits where the published cell work says it should. The four stars are for the transit. US customs sat on the parcel in Chicago for eleven days with no movement, then it showed up in Madison the next morning. Not Miro's fault exactly but plan for it if you are stateside.",
+    "author": "Jennifer Sorensen PhD",
+    "country": "United States",
+    "rating": 4
+   },
+   {
+    "date": "Sep 1, 2026",
+    "title": "second box",
+    "body": "reordered the 10mg before the first ten vials ran out, aalborg, nothing changed between lots",
+    "author": "mette.j",
+    "country": "Denmark",
+    "rating": 5
+   },
+   {
+    "date": "Aug 25, 2026",
+    "title": "in stock when nobody else had it",
+    "body": "Everyone wanted epitalon after the july vote and half the usual places were sold out or quoting september. Miro had the 10mg. Valencia in eight days and the lot reads clean in our senescence markers. Genuinely relieved, we had a grant deadline hanging on those cells.",
+    "author": "Alejandro G.",
+    "country": "Spain",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.9,
+   "count": 15
+  }
  },
  {
   "slug": "ghk-cu",
@@ -1026,7 +1372,37 @@ window.MIRO_PRODUCTS = [
    "mt-2",
    "glutathione",
    "epithalon"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Aug 17, 2026",
+    "title": "both for the wound panel",
+    "body": "Picked up tb-500 and ghk-cu together for a wound panel we run every quarter. Read in spec against our reference and went into solution first try. Odense, about a week",
+    "author": "F. Nielsen",
+    "country": "Denmark",
+    "rating": 5
+   },
+   {
+    "date": "Aug 15, 2026",
+    "title": "one small ask",
+    "body": "Product is right, copper content matched. My only ask is a lot number on the outer box as well as the vial, our goods-in log wants it before the box is even opened and at the moment someone has to unpack it first. Minor, but it would save us five minutes every delivery",
+    "author": "Harriet Coles",
+    "country": "United Kingdom",
+    "rating": 4
+   },
+   {
+    "date": "Aug 12, 2026",
+    "title": "third copper order to antwerp",
+    "body": "third ghk-cu order, same faint blue as the first two, same readings. keeps the QC people off my back",
+    "author": "lien.dm",
+    "country": "Belgium",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.87,
+   "count": 59
+  }
  },
  {
   "slug": "glow",
@@ -1113,7 +1489,37 @@ window.MIRO_PRODUCTS = [
    "cjc-1295-ipamorelin",
    "klow",
    "bpc-157-tb-500"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 6, 2026",
+    "title": "i dati tengono",
+    "body": "i valori nel saggio di rimodellamento sono rimasti stabili rispetto al lotto precedente. arrivato a venezia in sette giorni sigillato come sempre",
+    "author": "Federico",
+    "country": "Italy",
+    "rating": 5
+   },
+   {
+    "date": "Aug 13, 2026",
+    "title": "finally a proper lyo",
+    "body": "Half the cakes from our last supplier used to turn up collapsed into powder. All ten of these made it to Lyon in one piece, thats honestly the main thing I was checking for.",
+    "author": "Margaux L",
+    "country": "France",
+    "rating": 5
+   },
+   {
+    "date": "Aug 2, 2026",
+    "title": "copper heavy",
+    "body": "we buy it for the 50mg of ghk-cu really, the tb and bpc are a bonus we dont use much. no difference on the remodelling side to the single vials we used to order",
+    "author": "Gareth Ashworth PhD",
+    "country": "United Kingdom",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.93,
+   "count": 21
+  }
  },
  {
   "slug": "glp-2-tz",
@@ -1258,7 +1664,37 @@ window.MIRO_PRODUCTS = [
    "tesamorelin",
    "mots-c",
    "cjc-1295"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 1, 2026",
+    "title": "running the two side by side",
+    "body": "We keep both the triple and the dual on the shelf so we can run them head to head, and with the outcomes trial coverage everywhere last week the comparison work got bumped up the list. Both lots from Miro read consistent with our earlier ones. Nottingham inside a week, which with the bank holiday in the middle I did not expect.",
+    "author": "Helen R. Moss",
+    "country": "United Kingdom",
+    "rating": 5
+   },
+   {
+    "date": "Aug 20, 2026",
+    "title": "graz nach fünf tagen",
+    "body": "tz nach graz in fünf tagen, ich weiss nicht wie die das so schnell hinkriegen aus dem ausland. charge sieht sauber aus, löst sich ohne rückstand. passt",
+    "author": "Sabine K.",
+    "country": "Austria",
+    "rating": 5
+   },
+   {
+    "date": "Jul 31, 2026",
+    "title": "moved our tz order here",
+    "body": "Moved our tz supply to Miro after the old supplier started drifting between lots. Two orders in and the receptor assays read the same both times. Zaragoza in eight days.",
+    "author": "R. Ortega",
+    "country": "Spain",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.88,
+   "count": 30
+  }
  },
  {
   "slug": "glp-3-rt",
@@ -1337,7 +1773,37 @@ window.MIRO_PRODUCTS = [
    "mots-c",
    "cjc-1295",
    "ipamorelin"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 1, 2026",
+    "title": "running the two side by side",
+    "body": "We keep both the triple and the dual on the shelf so we can run them head to head, and with the outcomes trial coverage everywhere last week the comparison work got bumped up the list. Both lots from Miro read consistent with our earlier ones. Nottingham inside a week, which with the bank holiday in the middle I did not expect.",
+    "author": "Helen R. Moss",
+    "country": "United Kingdom",
+    "rating": 5
+   },
+   {
+    "date": "Aug 28, 2026",
+    "title": "samma som sist",
+    "body": "Andra gången vi beställer reta hit till Malmö. Dom levererade snabbt igen, sex dagar, och kurvorna i våra assays ligger där dom låg i våras. Kollegan tyckte kartongen var onödigt stor, det är väl det enda",
+    "author": "Karl-Johan",
+    "country": "Sweden",
+    "rating": 5
+   },
+   {
+    "date": "Aug 7, 2026",
+    "title": "ordered after the july readouts",
+    "body": "the second lot of phase 3 data landing in july got the group talking again so we put in a bigger order than usual. ran it next to the lot from spring and the profile hasnt moved. eindhoven in five days",
+    "author": "Joris V",
+    "country": "Netherlands",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.91,
+   "count": 80
+  }
  },
  {
   "slug": "glutathione",
@@ -1440,7 +1906,37 @@ window.MIRO_PRODUCTS = [
    "nad-plus",
    "mt-2",
    "epithalon"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 10, 2026",
+    "title": "nothing off in rotterdam",
+    "body": "third glutathione order, arrived in rotterdam in six days sealed tight. gsh panel came back clean, same as the last two",
+    "author": "PH",
+    "country": "Netherlands",
+    "rating": 5
+   },
+   {
+    "date": "Sep 5, 2026",
+    "title": "arrived intact",
+    "body": "second glutathione order to tampere for our redox panels. dissolved fine and the numbers came back the same as the first lot",
+    "author": "Toivo K",
+    "country": "Finland",
+    "rating": 5
+   },
+   {
+    "date": "Aug 4, 2026",
+    "title": "still reduced on arrival",
+    "body": "glutathione is the one im always wary about, how much of it oxidises before it gets to us. gsh/gssg was fine when it landed in aarhus. bit paranoid of me maybe, its never come back bad yet",
+    "author": "malthe_k",
+    "country": "Denmark",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.92,
+   "count": 21
+  }
  },
  {
   "slug": "ipamorelin",
@@ -1494,7 +1990,37 @@ window.MIRO_PRODUCTS = [
    "tesamorelin",
    "mots-c",
    "cjc-1295"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Aug 22, 2026",
+    "title": "week and a bit to nantes",
+    "body": "got the cjc and the ipa in one go, both with lot numbers printed on the vial so our records are easy. thats about it really",
+    "author": "Mathieu",
+    "country": "France",
+    "rating": 5
+   },
+   {
+    "date": "Aug 3, 2026",
+    "title": "Beides aus einer Hand",
+    "body": "Wir nehmen CJC und Ipamorelin lieber getrennt, weil wir das Verhältnis je nach Versuch ändern. Kam zusammen in München an, jeweils mit Chargennummer. GH-Pulse im Modell wie immer. Gut das man dafür nicht zwei Lieferanten braucht",
+    "author": "endo_muc",
+    "country": "Germany",
+    "rating": 5
+   },
+   {
+    "date": "Jul 14, 2026",
+    "title": "back on the separates",
+    "body": "tried the blend for a few months but our protocol wants a different ratio so were back to buying cjc and ipa on their own. both vials checked out, sheffield this time round",
+    "author": "ollie_p",
+    "country": "United Kingdom",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.85,
+   "count": 33
+  }
  },
  {
   "slug": "klow",
@@ -1586,7 +2112,37 @@ window.MIRO_PRODUCTS = [
    "cjc-1295-ipamorelin",
    "glow",
    "bpc-157-tb-500"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 6, 2026",
+    "title": "vier auf einmal",
+    "body": "Lab wollte alle vier auf einmal testen statt Einzelvials, daher der Klow. BPC und TB lagen in spec, KPV war für ein neues Projekt dabei, Inter-Chargen-Kontrolle hat gepasst. Schnell in München, kein Drama.",
+    "author": "Tobias Fischer",
+    "country": "Germany",
+    "rating": 5
+   },
+   {
+    "date": "Aug 11, 2026",
+    "title": "fridge til september",
+    "body": "got to sevilla a week before the whole department disappears for august, its in the fridge til everyones back",
+    "author": "Álvaro",
+    "country": "Spain",
+    "rating": 5
+   },
+   {
+    "date": "Aug 1, 2026",
+    "title": "80mg is a lot",
+    "body": "We dont get through 80mg in the 30 days after its mixed, so it ends up split with the group down the hall the day it arrives. Thats on us not them. Goes clear and its been fine on the repair side, no other notes.",
+    "author": "Daan B.",
+    "country": "Netherlands",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.93,
+   "count": 21
+  }
  },
  {
   "slug": "kpv",
@@ -1678,7 +2234,37 @@ window.MIRO_PRODUCTS = [
    "tb-500",
    "cartalax"
   ],
-  "sequence": "Lys-Pro-Val (KPV)"
+  "sequence": "Lys-Pro-Val (KPV)",
+  "reviews": [
+   {
+    "date": "Sep 8, 2026",
+    "title": "nochmal kpv bestellt",
+    "body": "Zweite Lieferung nach München. In sechs Tagen da, Verpackung tadellos. Für unsere Modell Arbeit passt KPV gut, weil wir damit stabile Ausgangswerte hinbekommen",
+    "author": "jan_k",
+    "country": "Germany",
+    "rating": 5
+   },
+   {
+    "date": "Sep 8, 2026",
+    "title": "read the committee coverage first",
+    "body": "been watching the kpv advisory panel coverage since july, ordered a first lot after. came through to sligo no problem and the barrier assay numbers are sitting around what's published.",
+    "author": "Cillian N",
+    "country": "Ireland",
+    "rating": 5
+   },
+   {
+    "date": "Sep 3, 2026",
+    "title": "kpv in the rotation",
+    "body": "had been using kpv through the klow blend for a while, figured it was time to try it on its own. panels came back right where theyd been before. packaging was fine, nothing rattled loose",
+    "author": "szymon_k",
+    "country": "Poland",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.93,
+   "count": 22
+  }
  },
  {
   "slug": "mots-c",
@@ -1727,7 +2313,37 @@ window.MIRO_PRODUCTS = [
    "tesamorelin",
    "cjc-1295",
    "ipamorelin"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 5, 2026",
+    "title": "pair for the mito work",
+    "body": "we buy mots-c and nad+ together for the mitochondrial side of things and ordering both from one place has cut the admin a lot. this is the fourth time, all four have read the same in our assays. newcastle, usually five or six days",
+    "author": "mito_ncl",
+    "country": "United Kingdom",
+    "rating": 5
+   },
+   {
+    "date": "Aug 19, 2026",
+    "title": "finally on the list",
+    "body": "mots-c had been sitting on our maybe list for ages and after it came up at the july panel the PI signed off on it. first lot into dublin, went into the metabolic assays last week and the response is close to whats published. PI is happy, which is rarer than it sounds",
+    "author": "aoife_m",
+    "country": "Ireland",
+    "rating": 5
+   },
+   {
+    "date": "Jul 30, 2026",
+    "title": "tredje gången nu",
+    "body": "tredje beställningen av mots-c till linköping. samma respons i cell odlingarna som sist, inget konstigt. tog lite längre den här gången, typ tio dagar istället för en vecka, men vad gör det",
+    "author": "Oskar",
+    "country": "Sweden",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.9,
+   "count": 51
+  }
  },
  {
   "slug": "mt-2",
@@ -1782,7 +2398,37 @@ window.MIRO_PRODUCTS = [
    "nad-plus",
    "glutathione",
    "epithalon"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Aug 24, 2026",
+    "title": "quick enough",
+    "body": "Porto in eight days. Vials intact and the assay was fine.",
+    "author": "PM",
+    "country": "Portugal",
+    "rating": 5
+   },
+   {
+    "date": "Aug 9, 2026",
+    "title": "round two",
+    "body": "second mt2 order into cardiff, no fuss",
+    "author": "Ewan",
+    "country": "United Kingdom",
+    "rating": 5
+   },
+   {
+    "date": "Jul 19, 2026",
+    "title": "binding numbers steady",
+    "body": "mt-2 for melanocortin binding work, second lot from miro. numbers sit right on top of the first one. thats the whole review",
+    "author": "Femke Bakker",
+    "country": "Netherlands",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.86,
+   "count": 41
+  }
  },
  {
   "slug": "nad-plus",
@@ -1843,7 +2489,37 @@ window.MIRO_PRODUCTS = [
    "mt-2",
    "glutathione",
    "epithalon"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 5, 2026",
+    "title": "pair for the mito work",
+    "body": "we buy mots-c and nad+ together for the mitochondrial side of things and ordering both from one place has cut the admin a lot. this is the fourth time, all four have read the same in our assays. newcastle, usually five or six days",
+    "author": "mito_ncl",
+    "country": "United Kingdom",
+    "rating": 5
+   },
+   {
+    "date": "Jul 2, 2026",
+    "title": "wasnt expecting much",
+    "body": "first time buying nad+ from them and honestly wasnt sure what to expect for the price. ran it through a couple of our assays here in adelaide and it did the job, so ill be back for more.",
+    "author": "Lachlan Reid",
+    "country": "Australia",
+    "rating": 5
+   },
+   {
+    "date": "Jun 28, 2026",
+    "title": "more nad+ for testing",
+    "body": "Ordered more nad+ after all the precursor data thats come out this year, wanted enough to run our own comparisons. New lot lined up with the last batch, mixes up clear with nothing settling out. About ten days to denver",
+    "author": "Cole T. Brennan",
+    "country": "United States",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.86,
+   "count": 29
+  }
  },
  {
   "slug": "pinealon",
@@ -1939,7 +2615,37 @@ window.MIRO_PRODUCTS = [
    "selank",
    "dsip"
   ],
-  "sequence": "Glu-Asp-Arg (EDR)"
+  "sequence": "Glu-Asp-Arg (EDR)",
+  "reviews": [
+   {
+    "date": "Sep 11, 2026",
+    "title": "long haul down under",
+    "body": "Ordered pinealon after the huberman episode mentioned it, mostly because two of our PhD students wouldnt stop asking. Product side is fine, cultures happy enough. The transit was the issue, 16 days to brisbane with a week stuck at a sorting hub somewhere in between, and the tracking page didnt update for most of it. If you are in australia order well ahead.",
+    "author": "Lab manager",
+    "country": "Australia",
+    "rating": 4
+   },
+   {
+    "date": "Sep 3, 2026",
+    "title": "un pò scettica all'inizio",
+    "body": "Non conoscevo il pinealon prima che un collega me ne parlasse e ammetto che ero un pò scettica, un tripeptide così corto. Arrivato a Bologna in una settimana, flaconi interi. Nelle colture neuronali i valori si sono mossi come descritto in letteratura, quindi mi ricredo, almeno per ora.",
+    "author": "Chiara B.",
+    "country": "Italy",
+    "rating": 5
+   },
+   {
+    "date": "Aug 27, 2026",
+    "title": "finance was not thrilled",
+    "body": "Murcia lab here. First box of pinealon went so well we ordered again before it was finished, which the finance person was not thrilled about. Cognitive-aging model, two lots, same readout in our hands.",
+    "author": "Pau M",
+    "country": "Spain",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.91,
+   "count": 14
+  }
  },
  {
   "slug": "pt-141",
@@ -2043,7 +2749,37 @@ window.MIRO_PRODUCTS = [
    "mt-2",
    "glutathione"
   ],
-  "sequence": "Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-OH"
+  "sequence": "Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-OH",
+  "reviews": [
+   {
+    "date": "Sep 14, 2026",
+    "title": "fair price for ten",
+    "body": "Granada here, first time buying from them. The local distributor wanted more for five vials than Miro charges for the box of ten so that decision made itself. Cakes all intact, and the one vial I have put through the melanocortin panel so far looked normal. Lets see how the other nine go.",
+    "author": "Rafa",
+    "country": "Spain",
+    "rating": 5
+   },
+   {
+    "date": "Sep 12, 2026",
+    "title": "mc4r curve unchanged",
+    "body": "reordered for the melanocortin binding work and the mc4r curve overlays the april lot, strasbourg again, nothing new to say",
+    "author": "quentin.b",
+    "country": "France",
+    "rating": 5
+   },
+   {
+    "date": "Sep 5, 2026",
+    "title": "out for delivery, allegedly",
+    "body": "We are a four-person neuro group in Athlone and this was our first PT-141 from Miro, bought for a melanocortin receptor panel, mostly MC4R with some MC3R on the side. The compound is fine. Dissolved on the first attempt and the binding numbers on the first two plates sit close to what the older pharmacology papers report. My complaint is the delivery. The courier had it marked out for delivery for the better part of a week and a half, nothing moved, and support could only see the same screen I could, which is a special kind of annoying. The peptide gets five, the courier gets three, so four it is.",
+    "author": "Dr. Keane",
+    "country": "Ireland",
+    "rating": 4
+   }
+  ],
+  "rating": {
+   "value": 4.89,
+   "count": 14
+  }
  },
  {
   "slug": "selank",
@@ -2092,7 +2828,37 @@ window.MIRO_PRODUCTS = [
    "semax",
    "pinealon",
    "dsip"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 2, 2026",
+    "title": "beide sauber",
+    "body": "semax und selank zusammen bestellt, beides in basel angekommen ohne dass der zoll was wollte. reinheit passt, nix auffälliges in den verhaltensmodellen. praktisch weil wir sonst zwei lieferanten bräuchten",
+    "author": "matthias91",
+    "country": "Switzerland",
+    "rating": 5
+   },
+   {
+    "date": "Jul 1, 2026",
+    "title": "Held up lot to lot",
+    "body": "Second lot of selank for the group and the response in our anxiety model came out about the same as the first. Thats really all we need from it for the screening work",
+    "author": "T. Dhaliwal",
+    "country": "Canada",
+    "rating": 5
+   },
+   {
+    "date": "Jun 26, 2026",
+    "title": "about time we tried it",
+    "body": "first selank order for us, picked it up after seeing how much research has come out on it lately. landed in perth in about nine days and the lot checked out against the published data, nothing out of place",
+    "author": "Angus W",
+    "country": "Australia",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.86,
+   "count": 29
+  }
  },
  {
   "slug": "semax",
@@ -2189,7 +2955,37 @@ window.MIRO_PRODUCTS = [
    "pinealon",
    "dsip"
   ],
-  "sequence": "Met-Glu-His-Phe-Pro-Gly-Pro (MEHFPGP)"
+  "sequence": "Met-Glu-His-Phe-Pro-Gly-Pro (MEHFPGP)",
+  "reviews": [
+   {
+    "date": "Sep 2, 2026",
+    "title": "beide sauber",
+    "body": "semax und selank zusammen bestellt, beides in basel angekommen ohne dass der zoll was wollte. reinheit passt, nix auffälliges in den verhaltensmodellen. praktisch weil wir sonst zwei lieferanten bräuchten",
+    "author": "matthias91",
+    "country": "Switzerland",
+    "rating": 5
+   },
+   {
+    "date": "Jul 6, 2026",
+    "title": "no more backorders",
+    "body": "moved over to miro for semax after our last supplier kept backordering us. its cheaper and it actually ships when theyve got it, thats really all i needed",
+    "author": "Derek C",
+    "country": "United States",
+    "rating": 5
+   },
+   {
+    "date": "Jun 29, 2026",
+    "title": "quicker the second time",
+    "body": "second semax order to abu dhabi, turned up faster than the first one did. sealed and packed well, happy with it",
+    "author": "Saeed",
+    "country": "United Arab Emirates",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.85,
+   "count": 30
+  }
  },
  {
   "slug": "ss-31",
@@ -2299,7 +3095,37 @@ window.MIRO_PRODUCTS = [
    "mt-2",
    "glutathione"
   ],
-  "sequence": "D-Arg-Dmt-Lys-Phe-NH2 (Dmt = 2,6-dimethyl-L-tyrosine)"
+  "sequence": "D-Arg-Dmt-Lys-Phe-NH2 (Dmt = 2,6-dimethyl-L-tyrosine)",
+  "reviews": [
+   {
+    "date": "Oct 19, 2026",
+    "title": "50mg räckte längre än jag trodde",
+    "body": "beställde 50mg i augusti till västerås och det har räckt till alla TMRM körningar på kardiomyocyterna hittills. membranpotentialen håller sig bättre under H2O2 än i kontrollerna, vilket var hela poängen",
+    "author": "filip91",
+    "country": "Sweden",
+    "rating": 5
+   },
+   {
+    "date": "Sep 13, 2026",
+    "title": "upsized to 50mg",
+    "body": "Started on the 10mg in spring, moved up to the 50mg this time because the cardiolipin binding runs eat through it. Same profile at both sizes as far as our assays can tell. Mechelen, took a bit under a week.",
+    "author": "Laura V",
+    "country": "Belgium",
+    "rating": 5
+   },
+   {
+    "date": "Sep 4, 2026",
+    "title": "kühlkette hat gepasst",
+    "body": "war skeptisch wegen dem sommer, aber die fläschchen kamen kalt und trocken in innsbruck an, keine feuchtigkeit im lyophilisat. bestellt am montag, da am donnerstag. für die mito arbeit reicht mir das erstmal, mehr weiss ich nach dem ersten durchlauf",
+    "author": "stefan_h",
+    "country": "Austria",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.89,
+   "count": 14
+  }
  },
  {
   "slug": "tb-500",
@@ -2356,7 +3182,37 @@ window.MIRO_PRODUCTS = [
    "bpc-157",
    "kpv",
    "cartalax"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Aug 26, 2026",
+    "title": "slower than last time",
+    "body": "bpc and tb both fine, matched the cert like the last three orders. this one took twelve days to nijmegen though, the previous ones were under a week. probably the summer but it pushed a study start back a few days",
+    "author": "ortho_nl",
+    "country": "Netherlands",
+    "rating": 4
+   },
+   {
+    "date": "Aug 17, 2026",
+    "title": "both for the wound panel",
+    "body": "Picked up tb-500 and ghk-cu together for a wound panel we run every quarter. Read in spec against our reference and went into solution first try. Odense, about a week",
+    "author": "F. Nielsen",
+    "country": "Denmark",
+    "rating": 5
+   },
+   {
+    "date": "Jul 23, 2026",
+    "title": "customs didnt touch it",
+    "body": "was half expecting a customs letter on the bpc and tb but it came straight through to limerick without a peep. ran both against our reference, all fine. two clean orders now so ill stop worrying about the customs bit",
+    "author": "limerick_lab",
+    "country": "Ireland",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.86,
+   "count": 45
+  }
  },
  {
   "slug": "tesamorelin",
@@ -2415,7 +3271,37 @@ window.MIRO_PRODUCTS = [
    "mots-c",
    "cjc-1295",
    "ipamorelin"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Sep 4, 2026",
+    "title": "still the same tesa",
+    "body": "Second tesa order from here, first one was in spring. GH readouts sit on top of the old ones. Bilbao again",
+    "author": "Nuria P",
+    "country": "Spain",
+    "rating": 5
+   },
+   {
+    "date": "Aug 10, 2026",
+    "title": "arrivato prima del previsto",
+    "body": "Ordinato il tesamorelin giovedì ed era a Torino il martedì dopo, sopratutto non me lo aspettavo così presto dall'estero. Si scioglie senza residui, i valori nel saggio tornano con quelli della scorsa primavera. Il collega che di solito ordina dice che con gli altri fornitori ci vogliono tre settimane, quindi boh, direi che ci siamo",
+    "author": "Giulia Conti",
+    "country": "Italy",
+    "rating": 5
+   },
+   {
+    "date": "Mar 2, 2026",
+    "title": "gh-werte wie gehabt",
+    "body": "dritte charge tesa von denen inzwischen. die gh profile in unseren assays sind quasi deckungsgleich mit den letzten beiden. mehr brauch ich nicht",
+    "author": "MT_research",
+    "country": "Germany",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.87,
+   "count": 36
+  }
  },
  {
   "slug": "thymalin",
@@ -2495,7 +3381,37 @@ window.MIRO_PRODUCTS = [
    "nad-plus",
    "mt-2",
    "glutathione"
-  ]
+  ],
+  "reviews": [
+   {
+    "date": "Oct 20, 2026",
+    "title": "our fault not theirs",
+    "body": "Box got to Waterford in 6 days then sat in the department post room another three because nobody told us it had landed. CD4/CD8 ratios in the aged rats moved the way the old Russian papers report so the PI is happy enough.",
+    "author": "Tadhg F",
+    "country": "Ireland",
+    "rating": 5
+   },
+   {
+    "date": "Oct 15, 2026",
+    "title": "halbe box an die nachbarn",
+    "body": "zehn fläschchen thymalin kriegen wir mit unseren alten mäusen nie im leben leer, also hat die nachbar gruppe die hälfte genommen und wir haben die rechnung geteilt. münster in fünf tagen, alles dicht. die thymusgewichte sehen bisher vernünftig aus, die anderen haben ihre noch nicht mal aufgemacht",
+    "author": "Philipp D.",
+    "country": "Germany",
+    "rating": 5
+   },
+   {
+    "date": "Sep 15, 2026",
+    "title": "took me months to find this",
+    "body": "been trying to get thymalin for our immunosenescence project since spring and every place either had no stock or wanted a purchase order from the university. miro just let me pay and shipped it, brno in 7 days. ran the first vial through the T-cell assay last week and it did what it was supposed to, so yeah, relieved",
+    "author": "jakub_p",
+    "country": "Czech Republic",
+    "rating": 5
+   }
+  ],
+  "rating": {
+   "value": 4.9,
+   "count": 14
+  }
  },
  {
   "slug": "vesugen",
@@ -2592,6 +3508,36 @@ window.MIRO_PRODUCTS = [
    "mt-2",
    "glutathione"
   ],
-  "sequence": "Lys-Glu-Asp (KED)"
+  "sequence": "Lys-Glu-Asp (KED)",
+  "reviews": [
+   {
+    "date": "Nov 3, 2026",
+    "title": "paying was the hard part",
+    "body": "first time paying for lab stuff in crypto and sorting the wallet out took me longer than the parcel took to get to Norwich lol. aortic rings sprouted about the same as with the KED we bought elsewhere last year, so fine",
+    "author": "L. Pennington",
+    "country": "United Kingdom",
+    "rating": 5
+   },
+   {
+    "date": "Oct 17, 2026",
+    "title": "our admin wanted the paperwork first",
+    "body": "Our department won't let anything into the freezer without the batch certificate on file, so I emailed support one afternoon and the PDF for our lot was waiting the next morning. Dijon four days later and it's still sitting there unopened, HUVEC work doesn't start until after Toussaint.",
+    "author": "Clémence",
+    "country": "France",
+    "rating": 5
+   },
+   {
+    "date": "Sep 10, 2026",
+    "title": "box looked like it lost a fight",
+    "body": "I do the ordering for a small vascular biology group in Sherbrooke and this was our first Vesugen purchase from Miro. The outer box arrived crushed on one corner. Not what you want to see given what ten vials cost. Inside everything was fine, vials seated in foam, none cracked, so the packaging did its job even if the courier did not. The lot matched the batch certificate and the endothelial assays have run without surprises so far. Twelve days including a customs hold in Mississauga. Four stars, mostly for the carton.",
+    "author": "Maxime L.",
+    "country": "Canada",
+    "rating": 4
+   }
+  ],
+  "rating": {
+   "value": 4.94,
+   "count": 14
+  }
  }
 ];

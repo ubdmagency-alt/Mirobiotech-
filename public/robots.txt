@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /checkout
 
-Sitemap: https://mirobiotech.ramsonekwe17.workers.dev/sitemap.xml
+Sitemap: https://mirobiotech.com/sitemap.xml

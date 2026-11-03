@@ -16,7 +16,7 @@ var CART_KEY = "miro-cart";
 /* --------------------------------------------------------------------------
    CARD_MODE — what happens when someone clicks a product card.
 
-   "page"   : cards are links — clicking goes straight to product.html?slug=...
+   "page"   : cards are links — clicking goes straight to /product?slug=...
               (the quick-view modal is still available via [data-quickview])
    "modal"  : clicking a card opens the quick-view modal instead, which links
               through to the full page.
@@ -213,11 +213,13 @@ function renderCart() {
   if (foot) {
     foot.innerHTML =
       '<div class="cart-total"><span>Estimated total</span><b>' + money(cartTotal()) + '</b></div>' +
-      '<button class="btn btn--primary btn--block btn--lg" id="email-order">' +
-        'Email this order &rarr;' +
+      '<a class="btn btn--primary btn--block btn--lg" href="/checkout">Checkout &rarr;</a>' +
+      '<button class="btn btn--ghost btn--block" id="email-order" style="margin-top:8px">' +
+        'Email this order instead' +
       '</button>' +
       '<p class="form-hint center mt-2" style="margin-top:.75rem">' +
-        'Opens your mail app with the full order pre-filled, sent to <strong>' + ORDER_EMAIL + '</strong>.' +
+        'Checkout collects your shipping details and offers Bitcoin or email ordering. ' +
+        'Nothing is charged on this site.' +
       '</p>';
   }
 }
@@ -603,7 +605,7 @@ document.addEventListener("DOMContentLoaded", function () {
                    '<span>' + esc(p.purity) + ' &middot; from ' + money(fromPerVial(p)) + '/vial</span>' +
                  '</a>';
         }).join("")
-      : '<p>No compounds match &ldquo;' + esc(q) + '&rdquo;. <a href="products.html">Browse all 31 &rarr;</a></p>';
+      : '<p>No compounds match &ldquo;' + esc(q) + '&rdquo;. <a href="/products">Browse all 31 &rarr;</a></p>';
     box.style.display = "block";
   }
 
