@@ -35,6 +35,15 @@
     return { size: size, pack: pack, unit: v.price / pack };
   }
 
+  /* Product images are stored as "assets/img/..." — relative to the site root,
+     but the detail page lives one level down at /product, so resolve them
+     against the origin instead. */
+  function imgSrc(path) {
+    if (!path) return "";
+    if (/^(https?:|data:|\/)/.test(path)) return path;
+    return "/" + path.replace(/^\.?\//, "");
+  }
+
   function stars(n) {
     n = Math.round(Number(n) || 0);
     var out = "";
@@ -93,10 +102,29 @@
   document.title = product.name + " " + product.purity + " Purity | Research Peptide | Miro Biotech";
   var md = $('meta[name="description"]');
   if (md) md.setAttribute("content", product.shortDescription);
-  var canon = document.createElement("link");
-  canon.rel = "canonical";
-  canon.href = window.location.origin + window.location.pathname + "?slug=" + product.slug;
-  document.head.appendChild(canon);
+  /* One canonical shape for every product URL: /product?slug=<slug>. The
+     ?slug= links and the legacy #slug links both point here. */
+  /* the prerendered HTML already carries a canonical — update it in place so
+     the page never ends up with two */
+  var canon = document.querySelector('link[rel="canonical"]');
+  if (!canon) {
+    canon = document.createElement("link");
+    canon.rel = "canonical";
+    document.head.appendChild(canon);
+  }
+  canon.href = window.location.origin + "/product?slug=" + product.slug;
+
+  /* social cards */
+  [["og:type", "product"], ["og:title", product.name + " — " + product.purity + " purity | Miro Biotech"],
+   ["og:description", product.shortDescription],
+   ["og:image", new URL(product.image, window.location.href).href],
+   ["og:url", canon.href], ["twitter:card", "summary_large_image"]].forEach(function (pair) {
+    var m = document.querySelector('meta[property="' + pair[0] + '"], meta[name="' + pair[0] + '"]');
+    if (!m) { m = document.createElement("meta"); document.head.appendChild(m); }
+    if (pair[0].indexOf("twitter:") === 0) m.setAttribute("name", pair[0]);
+    else m.setAttribute("property", pair[0]);
+    m.setAttribute("content", pair[1]);
+  });
 
   /* ---------- state ---------- */
   var chosen = product.variants[0];
@@ -201,7 +229,7 @@
     return '<a class="card card--link" href="/product?slug=' + encodeURIComponent(p.slug) + '">' +
              '<div class="card__media">' +
                '<span class="badge badge--purity">' + esc(p.purity) + " pure</span>" +
-               '<img src="' + esc(p.image) + '" alt="' + esc(p.name) + ' research vial" loading="lazy">' +
+               '<img src="' + esc(imgSrc(p.image)) + '" alt="' + esc(p.name) + ' research vial" loading="lazy">' +
              "</div>" +
              '<div class="card__body">' +
                '<div class="card__cat">' + esc(p.category) + "</div>" +
@@ -243,7 +271,7 @@
 
           '<div class="product__media">' +
             '<span class="product__purity-badge">' + esc(product.purity) + " pure</span>" +
-            '<img src="' + esc(product.image) + '" alt="' + esc(product.name) + ' research vial">' +
+            '<img src="' + esc(imgSrc(product.image)) + '" alt="' + esc(product.name) + ' research vial">' +
           "</div>" +
 
           '<div class="product__info">' +
@@ -301,8 +329,7 @@
             "</div>" +
 
             '<p class="modal__note">' +
-              "We do not take payment online. Add compounds to your list and email the order — " +
-              "we reply within one business day with availability, freight and a total." +
+              "Add what you need to your list, then check out with your shipping details. Pay by Bitcoin, or send the order by email and we invoice you — PayPal, CashApp, Zelle and card available on request. We reply within one business day with availability, freight and a total." +
             "</p>" +
 
             '<ul class="trust-list">' +
@@ -398,8 +425,8 @@
             '<ol class="steps">' +
               "<li><b>Pick your pack.</b> Sizes and pack prices are listed at the top of this page.</li>" +
               "<li><b>Add it to your list.</b> Build a list across the catalogue — nothing is charged online.</li>" +
-              "<li><b>Check out.</b> Add your shipping details, then pay by Bitcoin or send the order by email.</li>" +
-              "<li><b>We confirm and invoice.</b> Availability, freight and the total come back within one business day.</li>" +
+              "<li><b>Check out.</b> Add your shipping details, then pay by Bitcoin or send the order by email and we invoice you.</li>" +
+              "<li><b>We reply within one business day</b> with availability, freight and a total, then dispatch with tracking.</li>" +
             "</ol>" +
           "</div>" +
           '<div class="panel panel--soft">' +
@@ -530,6 +557,7 @@
     description: product.shortDescription,
     image: new URL(product.image, window.location.href).href,
     sku: product.sku || undefined,
+    url: canon.href,
     alternateName: product.alternateName && product.alternateName.length ? product.alternateName : undefined,
     brand: { "@type": "Brand", name: "Miro Biotech" },
     category: product.category,
@@ -537,6 +565,7 @@
     identifier: Object.keys(product.identifiers || {}).map(function (k) {
       return { "@type": "PropertyValue", propertyID: k, value: product.identifiers[k] };
     }),
+    keywords: keywordsFor(product),
     offers: product.variants.map(function (v) {
       var p = parseVariant(v);
       return {
@@ -546,10 +575,21 @@
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
-        url: canon.href
+        url: canon.href,
+        seller: { "@type": "Organization", name: "Miro Biotech" }
       };
     })
   };
+
+  /* keyword set per product — names, synonyms and the category head terms */
+  function keywordsFor(p) {
+    var k = [p.name, p.name + " peptide", "buy " + p.name, p.name + " for sale",
+             p.name + " research peptide", "research-grade " + p.name,
+             p.category, "research peptides", "peptides for research",
+             "third-party tested peptides", "COA peptides"];
+    (p.alternateName || []).forEach(function (a) { k.push(a); k.push("buy " + a); });
+    return k.filter(function (v, i, a) { return v && a.indexOf(v) === i; }).join(", ");
+  }
   if (product.molecularWeight) {
     ld.molecularWeight = { "@type": "QuantitativeValue", value: product.molecularWeight, unitCode: "DAL" };
   }
@@ -597,9 +637,9 @@
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: window.location.origin + "/" },
-      { "@type": "ListItem", position: 2, name: "Products", item: window.location.origin + "/products" },
-      { "@type": "ListItem", position: 3, name: product.category, item: window.location.origin + "//products#" + slugCat(product.category) },
-      { "@type": "ListItem", position: 4, name: product.name }
+      { "@type": "ListItem", position: 2, name: "Research Peptides", item: window.location.origin + "/products" },
+      { "@type": "ListItem", position: 3, name: product.category, item: window.location.origin + "/products#" + slugCat(product.category) },
+      { "@type": "ListItem", position: 4, name: product.name, item: canon.href }
     ]
   };
   var s3 = document.createElement("script");

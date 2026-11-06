@@ -24,8 +24,8 @@ mirobiotech-site/
 │   ├── legal.html
 │   ├── 404.html                served by not_found_handling
 │   ├── _redirects              old .html → clean URL 301s
-│   ├── robots.txt
-│   ├── sitemap.xml             37 URLs, regenerate if the catalogue changes
+│   ├── robots.txt              allows every crawler, AI agents named explicitly
+│   ├── sitemap.xml             37 URLs (6 pages + 31 products)
 │   └── assets/
 │       ├── css/                style, product-detail, home, inner, checkout
 │       ├── js/                 data.js, shop.js, product.js, checkout.js
@@ -177,7 +177,7 @@ Keep `rating.value` / `rating.count` in step with the published set.
 | Detail page sections | `public/assets/js/product.js` |
 | Colours, type, spacing | `assets/css/style.css` (`:root` custom properties) |
 | Checkout copy | `public/checkout.html` |
-| Sitemap | `public/sitemap.xml` |
+| Sitemap | `public/sitemap.xml` — 37 URLs, regenerate if the catalogue changes |
 
 After changing the catalogue, refresh `sitemap.xml` and the JSON-LD counts.
 
@@ -192,11 +192,11 @@ node --check public/assets/js/*.js          # syntax
 npx wrangler dev                            # then walk:
 #   /                      200
 #   /products              200
-#   /product?slug=bpc-157  200, three reviews, no image caption
+#   /product?slug=bpc-157  200, three reviews, no image caption, image clear of the title
 #   /checkout              200, form → payment → BTC panel + email panel
 #   /products.html         301 → /products
 #   /nope                  404 (custom page)
-npx wrangler deploy --dry-run               # "Read 70 files", bundle ≈0.3 KiB
+npx wrangler deploy --dry-run               # "Read 65 files", bundle ≈0.3 KiB
 ```
 
 The GitHub workflow re-runs the asset-reference check on every push.

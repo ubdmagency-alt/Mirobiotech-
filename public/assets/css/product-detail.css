@@ -320,10 +320,18 @@
 
 /* ---------- responsive ---------- */
 @media (max-width: 960px) {
-  .product { grid-template-columns: 1fr; gap: 30px; }
-  /* keep the media box as the positioning context for the purity badge */
-  .product__media { position: relative; }
-  .product__media img { max-height: 440px; object-fit: contain; }
+  .product { grid-template-columns: 1fr; gap: 26px; }
+  /* stack: kill the desktop sticky offset so the image box cannot slide up
+     over the product title */
+  .product__media {
+    position: relative;
+    top: auto;
+    max-width: 460px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 5;
+  }
+  .product__media img { max-height: none; height: 100%; object-fit: contain; }
+  .product__info { margin-top: .25rem; }
   .split, .split--even { grid-template-columns: 1fr; gap: 26px; }
 }
 @media (max-width: 560px) {

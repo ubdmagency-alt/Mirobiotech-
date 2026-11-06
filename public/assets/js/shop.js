@@ -115,7 +115,7 @@ function addToCart(item) {
       price: item.price,
       unit: item.unit || 0,
       qty: item.qty || 1,
-      image: item.image || ""
+      image: /^(https?:|data:|\/)/.test(item.image || "") ? item.image : "/" + (item.image || "").replace(/^\.?\//, "")
     });
   }
   writeCart(cart);
@@ -191,7 +191,7 @@ function renderCart() {
   }
 
   body.innerHTML = cart.map(function (i) {
-    var img = i.image ? '<img src="' + esc(i.image) + '" alt="" loading="lazy">' : "";
+    var img = i.image ? '<img src="' + esc(i.image) + '" alt="" loading="lazy" onerror="this.remove()">' : "";
     return (
       '<div class="cart-item">' +
         img +
@@ -215,11 +215,11 @@ function renderCart() {
       '<div class="cart-total"><span>Estimated total</span><b>' + money(cartTotal()) + '</b></div>' +
       '<a class="btn btn--primary btn--block btn--lg" href="/checkout">Checkout &rarr;</a>' +
       '<button class="btn btn--ghost btn--block" id="email-order" style="margin-top:8px">' +
-        'Email this order instead' +
+        'Send my list by email instead' +
       '</button>' +
       '<p class="form-hint center mt-2" style="margin-top:.75rem">' +
-        'Checkout collects your shipping details and offers Bitcoin or email ordering. ' +
-        'Nothing is charged on this site.' +
+        'Add what you need to your list, then check out with your shipping details. ' +
+        'Pay by Bitcoin, or send the order by email and we invoice you.' +
       '</p>';
   }
 }
@@ -384,8 +384,9 @@ function openProductModal(slug) {
             'View full details, specs &amp; FAQ &rarr;' +
           '</a>' +
           '<p class="modal__note">' +
-            'We do not take payment online. Add items and email your order, or message ' +
-            '<strong>' + ORDER_EMAIL + '</strong> directly and we will reply with availability and totals.' +
+            'Add what you need to your list, then check out with your shipping details. Pay by Bitcoin, ' +
+            'or send the order by email and we invoice you &mdash; PayPal, CashApp, Zelle and card ' +
+            'available on request. Or message <strong>' + ORDER_EMAIL + '</strong> directly.' +
           '</p>' +
         '</div>' +
       '</div>' +
